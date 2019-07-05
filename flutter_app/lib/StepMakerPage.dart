@@ -7,6 +7,7 @@ import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
 import 'RepeatPage.dart';
 import 'step_builder.dart';
 import 'components/step_card.dart';
+import 'components/Constants.dart';
 
 class StepMaker extends StatefulWidget {
   @override
@@ -106,7 +107,7 @@ class _StepMakerState extends State<StepMaker> {
                   elevation: 8.0,
                   height: 40.0,
                   minWidth: 50.0,
-                  color: Color(0xFF15C96C),
+                  color: mainAccentColor,
                   textColor: Colors.white,
                   onPressed: () {
                     Navigator.pop(context);
@@ -176,7 +177,7 @@ class _StepMakerState extends State<StepMaker> {
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25,
-                  color: Color(0xFF15C96C),
+                  color: mainAccentColor,
                 ),
               ),
               IconButton(
@@ -244,8 +245,8 @@ class _StepMakerState extends State<StepMaker> {
                           elevation: 8.0,
                           height: 40.0,
                           minWidth: 50.0,
-                          color: Colors.grey[100],
-                          textColor: Colors.black,
+                          color: mainButtonColor,
+                          textColor: mainButtonTextColor,
                           onPressed: () => {
                                 stepName = myController.text.toString(),
                               },
@@ -304,8 +305,8 @@ class _StepMakerState extends State<StepMaker> {
                           elevation: 8.0,
                           height: 40.0,
                           minWidth: 50.0,
-                          color: Colors.grey[100],
-                          textColor: Colors.black,
+                          color: mainButtonColor,
+                          textColor: mainButtonTextColor,
                           onPressed: () => _showDateTimePicker(),
                           splashColor: Colors.greenAccent,
                           child: Padding(
@@ -345,6 +346,8 @@ class _StepMakerState extends State<StepMaker> {
                         ),
                       ],
                     ),
+
+                    //This is the 3rd row
                     Container(
                       margin: EdgeInsets.only(bottom: 40.0),
                       child: Row(
@@ -362,6 +365,7 @@ class _StepMakerState extends State<StepMaker> {
                               activeColor: Colors.grey[400],
                             ),
                           ),
+
                           //If toggled on then display pick a date row card
                           wantsRemind
                               ? Padding(
@@ -372,8 +376,8 @@ class _StepMakerState extends State<StepMaker> {
                                         elevation: 8.0,
                                         height: 40.0,
                                         minWidth: 50.0,
-                                        color: Colors.grey[100],
-                                        textColor: Colors.black,
+                                        color: mainButtonColor,
+                                        textColor: mainButtonTextColor,
                                         onPressed: () {
                                           _showTime();
                                         },
@@ -394,8 +398,8 @@ class _StepMakerState extends State<StepMaker> {
                                           elevation: 8.0,
                                           height: 40.0,
                                           minWidth: 50.0,
-                                          color: Colors.grey[100],
-                                          textColor: Colors.black,
+                                          color: mainButtonColor,
+                                          textColor: mainButtonTextColor,
                                           onPressed: () =>
                                               _showDateTimePickerForRemind(),
                                           splashColor: Colors.greenAccent,
@@ -414,8 +418,8 @@ class _StepMakerState extends State<StepMaker> {
                                         elevation: 8.0,
                                         height: 40.0,
                                         minWidth: 50.0,
-                                        color: Colors.grey[100],
-                                        textColor: Colors.black,
+                                        color: mainButtonColor,
+                                        textColor: mainButtonTextColor,
                                         onPressed: () {
                                           Navigator.push(
                                             context,
@@ -443,6 +447,9 @@ class _StepMakerState extends State<StepMaker> {
                       ),
                     ),
                     Divider(),
+
+                    //Finished button and all the shit that happens when
+                    //u finished creating and all info to card
                     Expanded(
                       child: Center(
                         child: Container(
@@ -450,7 +457,7 @@ class _StepMakerState extends State<StepMaker> {
                             elevation: 8.0,
                             height: 40.0,
                             minWidth: 50.0,
-                            color: Color(0xFF15C96C),
+                            color: mainAccentColor,
                             textColor: Colors.white,
                             onPressed: () {
                               //When user presses finish return and create new step card

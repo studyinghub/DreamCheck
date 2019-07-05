@@ -26,6 +26,11 @@ dependencies:
   flutter_cupertino_date_picker: ^1.0.3
   intl: ^0.15.7
   flutter_time_picker_spinner: ^1.0.5
+  firebase_core: ^0.4.0+6
+  cloud_firestore: ^0.12.6
+  firebase_auth: ^0.11.1+7
+
+
 
 dev_dependencies:
   flutter_test:

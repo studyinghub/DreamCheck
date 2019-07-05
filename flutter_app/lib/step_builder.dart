@@ -7,21 +7,22 @@ import 'components/step_card.dart';
 
 String backgroundText = "No Dreams";
 List<Widget> steps = new List<Widget>();
-FixedExtentScrollController fixedExtentScrollController =
-    new FixedExtentScrollController();
+ScrollController _scrollController =
+    new ScrollController(initialScrollOffset: 20.0);
 
-ListView _buildCardList(context) {
-  return ListView.builder(
-    // Must have an item count equal to the number of items!
-    itemCount: steps.length,
-    controller: TrackingScrollController(),
-    physics: BouncingScrollPhysics(),
-    shrinkWrap: true,
-    // A callback that will return a widget.
-    itemBuilder: (context, index) {
-      // In our case, a stepCard for each step
-      return (steps[index]);
-    },
+Expanded _buildCardList(context) {
+  return Expanded(
+    child: ListView.builder(
+      // Must have an item count equal to the number of items!
+      itemCount: steps.length,
+      controller: _scrollController,
+
+      // A callback that will return a widget.
+      itemBuilder: (context, index) {
+        // In our case, a stepCard for each step
+        return (steps[index]);
+      },
+    ),
   );
 }
 
@@ -31,6 +32,11 @@ class Steps extends StatefulWidget {
 }
 
 class _StepsState extends State<Steps> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   Card tempForAddingButtonInQueue;
   bool pressedAddForFirstTime = false;
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vision_check_test/StepMakerPage.dart';
 import 'VerticalDivider.dart';
+import 'Constants.dart';
 
 class StepCard extends StatelessWidget {
   StepCard(
@@ -48,7 +49,7 @@ class StepCard extends StatelessWidget {
                       "Finish By: " + cardDateVariable,
                       style: TextStyle(
                         fontSize: 15.0,
-                        color: Color(0xFF15C96C),
+                        color: mainAccentColor,
                       ),
                     ),
                   ),
@@ -69,7 +70,7 @@ class StepCard extends StatelessWidget {
                     elevation: 8.0,
                     height: 30.0,
                     minWidth: 10.0,
-                    color: Color(0xFF15C96C),
+                    color: mainAccentColor,
                     textColor: Colors.white,
                     onPressed: () {
                       Navigator.pop(context);
