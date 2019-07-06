@@ -31,6 +31,7 @@ Expanded _buildCardList(context) {
 }
 
 class Steps extends StatefulWidget {
+  static const String id = 'stepbuilder_page';
   @override
   _StepsState createState() => _StepsState();
 }

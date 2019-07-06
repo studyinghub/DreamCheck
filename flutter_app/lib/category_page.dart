@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'components/category_icons.dart';
 
 class CategoryList extends StatelessWidget {
+  static const id = 'categorylist_page';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

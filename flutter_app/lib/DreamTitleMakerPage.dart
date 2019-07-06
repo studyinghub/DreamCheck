@@ -5,6 +5,7 @@ import 'category_page.dart';
 import 'home_page.dart';
 
 class TitleMakerPage extends StatefulWidget {
+  static const String id = 'titlemaker_page';
   @override
   _TitleMakerPage createState() => _TitleMakerPage();
 }

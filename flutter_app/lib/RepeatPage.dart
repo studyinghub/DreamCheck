@@ -10,6 +10,7 @@ String never = "Never";
 String userSelection = "Repeat";
 
 class RepeatPage extends StatelessWidget {
+  static const String id = 'repeat_page';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

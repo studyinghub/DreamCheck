@@ -7,6 +7,7 @@ import "components/Constants.dart";
 String userDreamTitle;
 
 class HomePage extends StatelessWidget {
+  static const String id = 'home_page';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

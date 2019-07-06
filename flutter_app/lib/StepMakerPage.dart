@@ -10,6 +10,7 @@ import 'components/step_card.dart';
 import 'components/Constants.dart';
 
 class StepMaker extends StatefulWidget {
+  static const String id = 'stepmaker_page';
   @override
   _StepMakerState createState() => _StepMakerState();
 }
