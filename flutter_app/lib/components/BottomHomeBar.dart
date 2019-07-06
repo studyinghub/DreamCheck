@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vision_check_test/home_page.dart';
+import 'package:vision_check_test/settings_page.dart';
 
 class BottomHomeBar extends StatelessWidget {
   const BottomHomeBar();
@@ -43,6 +44,12 @@ class BottomHomeBar extends StatelessWidget {
             ),
             onPressed: () {
               //this should lead to the settings section
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Settings(),
+                ),
+              );
             },
           ),
         ],

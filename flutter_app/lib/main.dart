@@ -8,6 +8,7 @@ import 'package:vision_check_test/RepeatPage.dart';
 import 'login/login_page.dart';
 import 'login/register_page.dart';
 import 'login/welcome_page.dart';
+import 'settings_page.dart';
 
 //sup mr mascolo
 void main() {
@@ -23,6 +24,7 @@ void main() {
         LoginPage.id: (context) => LoginPage(),
         RegisterPage.id: (context) => RegisterPage(),
         WelcomePage.id: (context) => WelcomePage(),
+        Settings.id: (context) => Settings(),
       },
       initialRoute: WelcomePage.id,
     ),
