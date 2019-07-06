@@ -6,6 +6,8 @@ import 'package:vision_check_test/StepMakerPage.dart';
 import 'step_builder.dart';
 import 'package:vision_check_test/RepeatPage.dart';
 import 'login/login_page.dart';
+import 'login/register_page.dart';
+import 'login/welcome_page.dart';
 
 //sup mr mascolo
 void main() {
@@ -19,8 +21,10 @@ void main() {
         Steps.id: (context) => Steps(),
         RepeatPage.id: (context) => RepeatPage(),
         LoginPage.id: (context) => LoginPage(),
+        RegisterPage.id: (context) => RegisterPage(),
+        WelcomePage.id: (context) => WelcomePage(),
       },
-      initialRoute: HomePage.id,
+      initialRoute: WelcomePage.id,
     ),
   );
 }
