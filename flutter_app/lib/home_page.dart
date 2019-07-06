@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'components/BottomHomeBar.dart';
 import 'components/buttons_on_homepage.dart';
+import "components/dream_card.dart";
+import "components/Constants.dart";
+
+String userDreamTitle;
 
 class HomePage extends StatelessWidget {
   @override

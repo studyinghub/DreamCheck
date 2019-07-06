@@ -137,6 +137,7 @@ class _StepMakerState extends State<StepMaker> {
 
   @override
   Widget build(BuildContext context) {
+    double c_width = MediaQuery.of(context).size.width;
     DateTime date3;
     var dateStringParsing = new Column(
       children: <Widget>[
@@ -161,38 +162,45 @@ class _StepMakerState extends State<StepMaker> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        title: Padding(
+          padding: const EdgeInsets.only(left: 80.0),
+          child: Row(
             children: <Widget>[
-              Icon(
-                usersIconData,
-                color: Colors.black,
-                size: 30,
-              ),
               Text(
-                "Step information",
+                "Step builder",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25,
-                  color: mainAccentColor,
+                  color: Color(0xFF15C96C),
                 ),
               ),
-              IconButton(
-                icon: new Icon(
-                  Icons.close,
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Icon(
+                  usersIconData,
                   color: Colors.black,
                   size: 30,
                 ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
               ),
             ],
           ),
+        ),
+
+        actions: <Widget>[
+          IconButton(
+            icon: new Icon(
+              Icons.arrow_back,
+              color: Colors.black,
+              size: 30,
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
+//
+        backgroundColor: Colors.white,
       ),
       body: Center(
         child: Card(
@@ -224,7 +232,7 @@ class _StepMakerState extends State<StepMaker> {
                       Flexible(
                         //TextField Row
                         child: Container(
-                          margin: EdgeInsets.only(bottom: 50.0),
+                          margin: EdgeInsets.only(bottom: 40.0),
                           height: 40.0,
                           child: TextField(
                             maxLines: 2,
@@ -233,35 +241,11 @@ class _StepMakerState extends State<StepMaker> {
                             decoration: InputDecoration(
                                 border: InputBorder.none,
                                 contentPadding:
-                                    EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                                    EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
                                 hintText: "Enter your step here"),
                           ),
                         ),
                       ),
-                      //Save button and set stepName to textfield
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: MaterialButton(
-                          elevation: 8.0,
-                          height: 40.0,
-                          minWidth: 50.0,
-                          color: mainButtonColor,
-                          textColor: mainButtonTextColor,
-                          onPressed: () => {
-                                stepName = myController.text.toString(),
-                              },
-                          splashColor: Colors.greenAccent,
-                          child: Padding(
-                            padding: const EdgeInsets.all(0.0),
-                            child: Text(
-                              "SAVE",
-                              style: TextStyle(
-                                fontSize: 13.0,
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
                     ],
                   ),
                 ],
@@ -292,7 +276,7 @@ class _StepMakerState extends State<StepMaker> {
                       Expanded(
                         child: Padding(
                           padding:
-                              const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 60.0),
+                              const EdgeInsets.fromLTRB(30.0, 30.0, 30.0, 40.0),
                           child: Text(
                             dateVariable,
                             style: TextStyle(fontSize: 20.0),
@@ -361,58 +345,65 @@ class _StepMakerState extends State<StepMaker> {
                                   wantsRemind = value;
                                 });
                               },
-                              activeTrackColor: Colors.grey[300],
-                              activeColor: Colors.grey[400],
+                              activeTrackColor: mainAccentColor,
+                              activeColor: Colors.green[600],
                             ),
                           ),
 
                           //If toggled on then display pick a date row card
                           wantsRemind
                               ? Padding(
-                                  padding: const EdgeInsets.only(left: 0.0),
-                                  child: Row(
+                                  padding: const EdgeInsets.only(left: 40.0),
+                                  child: Column(
                                     children: <Widget>[
-                                      MaterialButton(
-                                        elevation: 8.0,
-                                        height: 40.0,
-                                        minWidth: 50.0,
-                                        color: mainButtonColor,
-                                        textColor: mainButtonTextColor,
-                                        onPressed: () {
-                                          _showTime();
-                                        },
-                                        splashColor: Colors.greenAccent,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(0.0),
-                                          child: Text(
-                                            reminderTime,
-                                            style: TextStyle(
-                                              fontSize: 13.0,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: MaterialButton(
-                                          elevation: 8.0,
-                                          height: 40.0,
-                                          minWidth: 50.0,
-                                          color: mainButtonColor,
-                                          textColor: mainButtonTextColor,
-                                          onPressed: () =>
-                                              _showDateTimePickerForRemind(),
-                                          splashColor: Colors.greenAccent,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(0.0),
-                                            child: Text(
-                                              reminderDate,
-                                              style: TextStyle(
-                                                fontSize: 13.0,
+                                      Row(
+                                        children: <Widget>[
+                                          MaterialButton(
+                                            elevation: 8.0,
+                                            height: 40.0,
+                                            minWidth: 50.0,
+                                            color: mainButtonColor,
+                                            textColor: mainButtonTextColor,
+                                            onPressed: () {
+                                              _showTime();
+                                            },
+                                            splashColor: Colors.greenAccent,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(0.0),
+                                              child: Text(
+                                                reminderTime,
+                                                style: TextStyle(
+                                                  fontSize: 13.0,
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(10.0),
+                                            child: MaterialButton(
+                                              elevation: 8.0,
+                                              height: 40.0,
+                                              minWidth: 50.0,
+                                              color: mainButtonColor,
+                                              textColor: mainButtonTextColor,
+                                              onPressed: () =>
+                                                  _showDateTimePickerForRemind(),
+                                              splashColor: Colors.greenAccent,
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.all(0.0),
+                                                child: Text(
+                                                  reminderDate,
+                                                  maxLines: 2,
+                                                  style: TextStyle(
+                                                    fontSize: 13.0,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                       MaterialButton(
                                         elevation: 8.0,
@@ -432,16 +423,19 @@ class _StepMakerState extends State<StepMaker> {
                                         splashColor: Colors.greenAccent,
                                         child: Padding(
                                           padding: const EdgeInsets.all(0.0),
-                                          child: Text(
-                                            userSelection,
-                                            style: TextStyle(
-                                              fontSize: 13.0,
+                                          child: Container(
+                                            child: Text(
+                                              userSelection,
+                                              style: TextStyle(
+                                                fontSize: 13.0,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ],
-                                  ))
+                                  ),
+                                )
                               : Card(),
                         ],
                       ),
@@ -462,6 +456,8 @@ class _StepMakerState extends State<StepMaker> {
                             onPressed: () {
                               //When user presses finish return and create new step card
                               //add all the information and add it to steps list
+                              stepName = myController.text.toString();
+                              print(dreamCards);
                               Navigator.pop(context);
                               steps.add(
                                 new StepCard(

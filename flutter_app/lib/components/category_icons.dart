@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vision_check_test/step_builder.dart';
+import 'package:vision_check_test/home_page.dart';
+import 'dream_card.dart';
+import 'Constants.dart';
 
 IconData usersIconData = Icons.favorite;
 String chosenCategoryText = "";

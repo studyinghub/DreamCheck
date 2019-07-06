@@ -4,6 +4,10 @@ import 'components/BottomHomeBar.dart';
 import 'components/category_icons.dart';
 import 'StepMakerPage.dart';
 import 'components/step_card.dart';
+import 'components/Constants.dart';
+import 'home_page.dart';
+import 'components/dream_card.dart';
+import 'components/category_icons.dart';
 
 String backgroundText = "No Dreams";
 List<Widget> steps = new List<Widget>();
@@ -44,29 +48,35 @@ class _StepsState extends State<Steps> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
+        title: Padding(
+          padding: const EdgeInsets.only(left: 80.0),
+          child: Row(
             children: <Widget>[
-              Icon(
-                usersIconData,
-                color: Colors.black,
-                size: 30,
-              ),
               Text(
                 "Your steps",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 25,
                   color: Color(0xFF15C96C),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Icon(
+                  usersIconData,
+                  color: Colors.black,
+                  size: 30,
+                ),
+              ),
             ],
           ),
+        ),
+
+        actions: <Widget>[
           IconButton(
             icon: new Icon(
-              Icons.close,
+              Icons.arrow_back,
               color: Colors.black,
               size: 30,
             ),
@@ -80,33 +90,98 @@ class _StepsState extends State<Steps> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Text(
-              steps.length.toString(),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: MaterialButton(
+                      elevation: 8.0,
+                      height: 40.0,
+                      minWidth: 50.0,
+                      color: Colors.red,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        dreamCards.add(new DreamCard(
+                          icon: usersIconData,
+                          dreamTitle: userDreamTitle,
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Steps(),
+                              ),
+                            );
+                          },
+                        ));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
+                        print(dreamCards);
+                      },
+                      splashColor: Colors.greenAccent,
+                      child: Padding(
+                        padding: const EdgeInsets.all(14.0),
+                        child: Text(
+                          "FINISHED",
+                          style: TextStyle(
+                            fontSize: 15.0,
+                            letterSpacing: 1.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: MaterialButton(
+                      elevation: 8.0,
+                      height: 40.0,
+                      minWidth: 50.0,
+                      color: mainAccentColor,
+                      textColor: Colors.white,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => StepMaker(),
+                          ),
+                        );
+                      },
+                      splashColor: Colors.greenAccent,
+                      child: Padding(
+                        padding: const EdgeInsets.all(0.0),
+                        child: Row(
+                          children: <Widget>[
+                            IconButton(
+                              icon: Icon(
+                                Icons.add,
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              "Add Step",
+                              style: TextStyle(
+                                fontSize: 15.0,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             (steps.length != 0) ? _buildCardList(context) : Text("No Dreams"),
           ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        elevation: 8.0,
-        shape: RoundedRectangleBorder(),
-        backgroundColor: Color(0xFF15C96C),
-        icon: Icon(
-          Icons.add,
-        ),
-        onPressed: () {
-          //this is where the pop up should come out and stuff
-          setState(() {});
-
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => StepMaker()),
-          );
-        },
-        label: Text(
-          'Add step',
         ),
       ),
       bottomNavigationBar: new BottomHomeBar(),

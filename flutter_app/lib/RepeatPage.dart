@@ -85,6 +85,7 @@ class Choice extends StatelessWidget {
           children: <Widget>[
             Text(
               text,
+              maxLines: 2,
               style: TextStyle(fontSize: 15),
             ),
           ],

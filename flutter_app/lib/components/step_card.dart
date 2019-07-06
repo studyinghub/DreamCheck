@@ -49,16 +49,19 @@ class StepCard extends StatelessWidget {
                       "Finish By: " + cardDateVariable,
                       style: TextStyle(
                         fontSize: 15.0,
-                        color: mainAccentColor,
+                        color: Colors.black,
                       ),
                     ),
                   ),
-                  Container(
-                    width: c_width,
-                    child: Text(
-                      stepName,
-                      style: TextStyle(
-                        fontSize: 17.0,
+                  Flexible(
+                    child: Container(
+                      width: c_width,
+                      child: Text(
+                        stepName,
+                        style: TextStyle(
+                          fontSize: 17.0,
+                        ),
+                        overflow: TextOverflow.fade,
                       ),
                     ),
                   ),

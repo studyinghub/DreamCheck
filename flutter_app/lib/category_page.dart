@@ -11,7 +11,7 @@ class CategoryList extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: new Icon(
-              Icons.close,
+              Icons.arrow_back,
               color: Colors.black,
               size: 30,
             ),
