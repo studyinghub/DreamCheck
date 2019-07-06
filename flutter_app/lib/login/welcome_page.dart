@@ -22,7 +22,7 @@ class _WelcomePageState extends State<WelcomePage>
     super.initState();
 
     controller =
-        AnimationController(duration: Duration(seconds: 1), vsync: this);
+        AnimationController(duration: Duration(seconds: 2), vsync: this);
     animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
         .animate(controller);
     controller.forward();
@@ -50,7 +50,7 @@ class _WelcomePageState extends State<WelcomePage>
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                TypewriterAnimatedTextKit(
+                TyperAnimatedTextKit(
                   text: ['Dream Check'],
                   textStyle: TextStyle(
                     fontSize: 35.0,

@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                     print(e);
                   }
                 },
-                color: mainAccentColor,
+                color: Colors.lightBlueAccent,
                 text: 'Log In',
               ),
             ],
