@@ -458,18 +458,30 @@ class _StepMakerState extends State<StepMaker> {
                               //When user presses finish return and create new step card
                               //add all the information and add it to steps list
                               stepName = myController.text.toString();
-                              print(dreamCards);
+                              print(dSteps.toString());
+                              print(d.getPosition());
                               Navigator.pop(context);
-                              steps.add(
-                                new StepCard(
-                                  stepNumber: (steps.length + 1),
-                                  stepName: stepName,
-                                  cardReminderDate: reminderDate,
-                                  cardReminderTime: reminderTime,
-                                  cardDateVariable: dateVariable,
-                                  cardWantsRemind: wantsRemind,
-                                ),
-                              );
+                              (d.getPosition() != 0)
+                                  ? dSteps.add(
+                                      new StepCard(
+                                        stepNumber: (steps.length + 1),
+                                        stepName: stepName,
+                                        cardReminderDate: reminderDate,
+                                        cardReminderTime: reminderTime,
+                                        cardDateVariable: dateVariable,
+                                        cardWantsRemind: wantsRemind,
+                                      ),
+                                    )
+                                  : steps.add(
+                                      new StepCard(
+                                        stepNumber: (steps.length + 1),
+                                        stepName: stepName,
+                                        cardReminderDate: reminderDate,
+                                        cardReminderTime: reminderTime,
+                                        cardDateVariable: dateVariable,
+                                        cardWantsRemind: wantsRemind,
+                                      ),
+                                    );
                               //Clear all data and reset them back to there original values
                               reminderTime = "Time";
                               stepName = "";

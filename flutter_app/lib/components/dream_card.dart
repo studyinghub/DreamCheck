@@ -8,11 +8,23 @@ class DreamCard extends StatelessWidget {
   DreamCard(
       {@required this.icon,
       @required this.dreamTitle,
-      @required this.onPressed});
+      @required this.onPressed,
+      @required this.stepList,
+      @required this.position});
 
   IconData icon;
   String dreamTitle;
   Function onPressed;
+  int position;
+  List<Widget> stepList;
+
+  List<Widget> getStepList() {
+    return this.stepList;
+  }
+
+  int getPosition() {
+    return this.position;
+  }
 
   @override
   Widget build(BuildContext context) {

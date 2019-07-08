@@ -9,6 +9,9 @@ import 'Constants.dart';
 import 'dream_card.dart';
 import 'package:vision_check_test/DreamTitleMakerPage.dart';
 
+bool addDreamGotPressed = false;
+int positionOfDreamPressed = 0;
+
 class ButtonsOnHomePage extends StatefulWidget {
   @override
   _ButtonsOnHomePage createState() => _ButtonsOnHomePage();
@@ -25,6 +28,9 @@ class _ButtonsOnHomePage extends State<ButtonsOnHomePage> {
             dreamTitle: "Add Dream",
             icon: Icons.add,
             onPressed: () {
+              addDreamGotPressed = true;
+              positionOfDreamPressed = 0;
+              print(positionOfDreamPressed.toString());
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -32,6 +38,7 @@ class _ButtonsOnHomePage extends State<ButtonsOnHomePage> {
                 ),
               );
             },
+            position: 0,
           ),
         );
       }

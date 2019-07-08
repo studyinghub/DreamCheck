@@ -86,7 +86,7 @@ class Category extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Steps(),
+                builder: (context) => new Steps(),
               ),
             );
           },
